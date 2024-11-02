@@ -63,6 +63,10 @@ class HeatingDevice(Device):
         return self.service.getProperty("heating.sensors.temperature.outside")["properties"]["value"]["value"]
 
     @handleNotSupported
+    def getOutsideTemperatureTimeStamp(self):
+        return self.service.getProperty("heating.sensors.temperature.outside")["timestamp"]
+
+    @handleNotSupported
     def getDomesticHotWaterConfiguredTemperature(self):
         return self.service.getProperty("heating.dhw.temperature.main")["properties"]["value"]["value"]
 
@@ -336,6 +340,10 @@ class HeatingDevice(Device):
         return self.service.getProperty("heating.sensors.temperature.return")["properties"]["value"]["value"]
 
     @handleNotSupported
+    def getReturnTemperatureTimeStamp(self):
+        return self.service.getProperty("heating.sensors.temperature.return")["timestamp"]
+
+    @handleNotSupported
     def getSupplyTemperaturePrimaryCircuit(self):
         return self.service.getProperty("heating.primaryCircuit.sensors.temperature.supply")["properties"]["value"][
             "value"]
@@ -517,6 +525,11 @@ class HeatingCircuit(HeatingDeviceWithComponent):
         return \
             self.service.getProperty(f"heating.circuits.{self.circuit}.sensors.temperature.supply")["properties"][
                 "value"]["value"]
+
+    @handleNotSupported
+    def getSupplyTemperatureTimeStamp(self):
+        return \
+            self.service.getProperty(f"heating.circuits.{self.circuit}.sensors.temperature.supply")["timestamp"]
 
     @handleNotSupported
     def getRoomTemperature(self):

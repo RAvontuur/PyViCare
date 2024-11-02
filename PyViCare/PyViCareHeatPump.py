@@ -37,6 +37,10 @@ class HeatPump(HeatingDevice):
         return self.service.getProperty("heating.power.consumption.summary.heating")["properties"]["currentDay"]["value"]
 
     @handleNotSupported
+    def getPowerSummaryConsumptionHeatingCurrentDayTimeStamp(self):
+        return self.service.getProperty("heating.power.consumption.summary.heating")["timestamp"]
+
+    @handleNotSupported
     def getPowerSummaryConsumptionHeatingCurrentMonth(self):
         return self.service.getProperty("heating.power.consumption.summary.heating")["properties"]["currentMonth"]["value"]
 
@@ -117,6 +121,10 @@ class HeatPump(HeatingDevice):
     @handleNotSupported
     def getVolumetricFlowReturn(self):
         return self.service.getProperty("heating.sensors.volumetricFlow.allengra")["properties"]['value']['value']
+
+    @handleNotSupported
+    def getVolumetricFlowReturnTimeStamp(self):
+        return self.service.getProperty("heating.sensors.volumetricFlow.allengra")["timestamp"]
 
     @handleNotSupported
     def getAvailableVentilationModes(self):

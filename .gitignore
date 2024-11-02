@@ -125,3 +125,4 @@ dump.*json
 
 # PyCharm
 .idea
+/myauth.py

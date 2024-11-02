@@ -1,3 +1,4 @@
+import json
 import logging
 from datetime import datetime
 
@@ -45,6 +46,7 @@ class PyViCare:
             raise PyViCareInvalidDataError(installations)
 
         data = installations['data']
+        # print(json.dumps(data))
         self.installations = Wrap(data)
         self.devices = list(self.__extract_devices())
 

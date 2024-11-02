@@ -1,3 +1,4 @@
+import json
 import logging
 import threading
 from typing import Any, List
@@ -40,6 +41,7 @@ class ViCareCachedService(ViCareService):
                 self.__cacheTime = ViCareTimer().now()
 
                 data = self.fetch_all_features()
+                # print(json.dumps(data))
                 if "data" not in data:
                     logger.error("Missing 'data' property when fetching data.")
                     raise PyViCareInvalidDataError(data)
